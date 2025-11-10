@@ -2,7 +2,8 @@
 
 if [ -z "$1" ]; then
 	echo "Erreur : chaîne vide."
-	exit 1
+	echo "Ville mise par défaut : Toulouse."
+	set -- "Toulouse"
 fi
 
 if ! [[ "$1" =~ ^[A-Za-z]+$ ]]; then
@@ -17,4 +18,4 @@ fi
 
 
 
-curl https://wttr.in/$1 >> "/c/Users/kylia/OneDrive/Bureau/L2 MIASHS/ProjetConfig/local.txt"
+curl https://wttr.in/$1 >> local.txt
