@@ -6,5 +6,5 @@ if [ -z "$1" ]; then
 fi
 VILLE="$1"
 FICHIER_BRUT="meteo_brut.txt"
-curl -s "https://wttr.in/${VILLE}?format=j1" -o "$FICHIER_BRUT"
+curl -s "https://wttr.in/$VILLE" | sed 's/\x1B\[[0-9;]*m//g' > "$FICHIER_BRUT"
 echo "Donnees meteo  sauvegarde dans $FICHIER_BRUT"
